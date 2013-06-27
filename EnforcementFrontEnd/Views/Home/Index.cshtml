@@ -1,0 +1,33 @@
+﻿@model EnforcementFrontEnd.Models.EnforcementModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Parking enforcement</title>
+    </head>
+    <body>
+        
+            @foreach (var location in Model.Locations)
+            {
+                <div>
+                    Location @location.LocationId - @{
+                                                        if (string.IsNullOrEmpty(location.LicensePlate))
+                                                        {
+                                                            @:(empty)
+                                                        }
+                                                        else
+                                                        {
+                                                            @:@location.LicensePlate
+                                                        }
+                                                    }
+                                                    
+                    <br/>
+                </div>
+            } 
+    </body>
+</html>
