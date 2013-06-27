@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using EnforcementFrontEnd.Logic;
 using EnforcementFrontEnd.Models;
 
 namespace EnforcementFrontEnd.Controllers
@@ -16,18 +17,13 @@ namespace EnforcementFrontEnd.Controllers
         {
             return new EnforcementModel
                        {
-                           Locations = GenerateLocations()
+                           Locations = GetLocationsFromEventStore()
                        };
         }
 
-        private IEnumerable<Location> GenerateLocations()
+        private IEnumerable<Location> GetLocationsFromEventStore()
         {
-            var locations = new List<Location>(); 
-            for (int l = 1000; l < 1020; l++)
-            {
-                locations.Add(new Location{LocationId = l});
-            }
-            return locations; 
+            return LocationsEventStore.Locations; 
         }
     }
 }

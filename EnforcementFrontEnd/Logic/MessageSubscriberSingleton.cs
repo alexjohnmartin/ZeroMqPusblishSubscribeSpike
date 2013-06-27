@@ -33,7 +33,7 @@ namespace EnforcementFrontEnd.Logic
                 var envelope = JsonConvert.DeserializeObject<Envelope>(jsonData);
                 switch (envelope.Header.Type.ToString())
                 {
-                    case "StartParkingEvent":
+                    case "Shared_Contracts.Parking.StartParkingEvent":
                         LocationsEventStore.Consume(JsonConvert.DeserializeObject<StartParkingEvent>(envelope.Message));
                         break;
                     default:
