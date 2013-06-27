@@ -1,12 +1,8 @@
-﻿using System.Configuration;
-
-namespace ParkingFrontEnd.Service
+﻿namespace ParkingFrontEnd.Service
 {
     public class MessagePublisherConfig
     {
-        public string Host 
-        { 
-            get { return ConfigurationManager.AppSettings["MessagePublisher.Host"]; }
-        }
+        public bool TestMode { get; set; }
+        public string Host { get; set; }
     }
 }

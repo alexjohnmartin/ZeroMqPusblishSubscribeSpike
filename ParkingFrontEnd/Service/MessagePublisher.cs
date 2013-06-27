@@ -1,32 +1,44 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using ZMQ; 
 
 namespace ParkingFrontEnd.Service
 {
-    public class MessagePublisher : IMessagePublisher
+    public static class MessagePublisher
     {
-        public void SendMessage(string message)
+        public static void SendMessage(string message)
         {
-            using (var context = new Context(1))
-            {
-                using (Socket publisher = context.Socket(SocketType.PUB))
-                {
-                    publisher.Bind(_config.Host);
+            if (!_configured)
+                throw new ApplicationException("You must configure the MessagePublisher before you can send a message");
 
-                    for (int i = 0; i < 3; i++)
-                    {
-                        System.Threading.Thread.Sleep(1000);
-                        publisher.Send(message, Encoding.Unicode);
-                    }
-                }
+            if (!_config.TestMode)
+            {
+                _socket.Send(message, Encoding.Unicode);
             }
         }
 
-        private readonly MessagePublisherConfig _config;
-
-        public MessagePublisher(MessagePublisherConfig config)
+        public static void Configure(MessagePublisherConfig config)
         {
             _config = config;
+            _configured = true; 
+
+            if (!_config.TestMode)
+            {
+                _context = new Context(1);
+                _socket = _context.Socket(SocketType.PUB); 
+                _socket.Bind(_config.Host);
+            }
         }
+
+        public static void Dispose()
+        {
+            _socket.Dispose();
+            _context.Dispose();
+        }
+
+        private static MessagePublisherConfig _config;
+        private static Context _context;
+        private static Socket _socket;
+        private static bool _configured = false; 
     }
 }
