@@ -11,9 +11,8 @@ namespace ConsoleListener
         {
             Console.WriteLine("Subscribing to parking events...");
 
-            //string filter = "startparking ";
-            string filter = "s";
-
+            string filter = "parkingEvent ";
+            
             using (var context = new Context(1))
             {
                 using (Socket subscriber = context.Socket(SocketType.SUB))
