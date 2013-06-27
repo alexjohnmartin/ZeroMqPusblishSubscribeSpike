@@ -4,12 +4,12 @@ using ZMQ;
 
 namespace ParkingFrontEnd.Service
 {
-    public static class MessagePublisher
+    public static class MessagePublisherSingleton
     {
         public static void SendMessage(string message)
         {
             if (!_configured)
-                throw new ApplicationException("You must configure the MessagePublisher before you can send a message");
+                throw new ApplicationException("You must configure the MessagePublisherSingleton before you can send a message");
 
             if (!_config.TestMode)
             {

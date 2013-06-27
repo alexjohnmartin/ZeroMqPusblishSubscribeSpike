@@ -6,7 +6,7 @@ namespace ParkingFrontEnd.Service
     {
         public void SendStartParkingMessage(int locationId, int duration, DateTime parkingStartTime)
         {
-            MessagePublisher.SendMessage(string.Format("startparking {0} {1} {2}", locationId, duration, parkingStartTime));
+            MessagePublisherSingleton.SendMessage(string.Format("startparking {0} {1} {2}", locationId, duration, parkingStartTime));
         }
 
         public void SendExtendParkingMessage(int locationId, int duration)

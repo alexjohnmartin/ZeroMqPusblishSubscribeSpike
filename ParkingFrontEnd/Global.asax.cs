@@ -16,12 +16,12 @@ namespace ParkingFrontEnd
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            MessagePublisher.Configure(new MessagePublisherConfig{TestMode = false, Host = ConfigurationManager.AppSettings["MessagePublisher.Host"]});
+            MessagePublisherSingleton.Configure(new MessagePublisherConfig{TestMode = false, Host = ConfigurationManager.AppSettings["MessagePublisherSingleton.Host"]});
         }
 
         public void Application_End()
         {
-            MessagePublisher.Dispose();
+            MessagePublisherSingleton.Dispose();
         }
     }
 }
