@@ -1,0 +1,9 @@
+D:\dev\experimental\ZeroMqPublishSubscribeSpike\ConsoleListener\bin\Debug\libzmq.dll
+D:\dev\experimental\ZeroMqPublishSubscribeSpike\ConsoleListener\bin\Debug\ConsoleListener.exe.config
+D:\dev\experimental\ZeroMqPublishSubscribeSpike\ConsoleListener\bin\Debug\ConsoleListener.exe
+D:\dev\experimental\ZeroMqPublishSubscribeSpike\ConsoleListener\bin\Debug\ConsoleListener.pdb
+D:\dev\experimental\ZeroMqPublishSubscribeSpike\ConsoleListener\bin\Debug\clrzmq.dll
+D:\dev\experimental\ZeroMqPublishSubscribeSpike\ConsoleListener\bin\Debug\clrzmq.pdb
+D:\dev\experimental\ZeroMqPublishSubscribeSpike\ConsoleListener\bin\Debug\clrzmq.xml
+D:\dev\experimental\ZeroMqPublishSubscribeSpike\ConsoleListener\obj\x86\Debug\ConsoleListener.exe
+D:\dev\experimental\ZeroMqPublishSubscribeSpike\ConsoleListener\obj\x86\Debug\ConsoleListener.pdb

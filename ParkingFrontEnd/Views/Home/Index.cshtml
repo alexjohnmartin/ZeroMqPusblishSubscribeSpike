@@ -1,0 +1,39 @@
+﻿@model ParkingFrontEnd.Models.HomeModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Parking pub-sub experiment</title>
+    </head>
+    <body>
+        <div>
+            <h1>Parking pub-sub experiment</h1>
+            <p><span style="color: red;">@Model.Message</span></p>
+
+            @Html.BeginForm("StartParking", "Home")  
+            <h2>Start parking</h2>
+            Location ID - @Html.EditorFor(m => m.Location, new { @autocomplete = "off", @maxlength = "5", @type = "number" })<br/>
+            Duration (mins) - @Html.EditorFor(m => m.Duration, new { @autocomplete = "off", @maxlength = "5", @type = "number" })<br/>
+            <input type="submit" value="start parking" name="buttonName" class="actionButton"/> 
+            @{ Html.EndForm(); }
+            
+            @Html.BeginForm("ExtendParking", "Home")  
+            <h2>Extend parking</h2>
+            Location ID - @Html.EditorFor(m => m.Location, new { @autocomplete = "off", @maxlength = "5", @type = "number" })<br/>
+            Duration (mins) - @Html.EditorFor(m => m.Duration, new { @autocomplete = "off", @maxlength = "5", @type = "number" })<br/>
+            <input type="submit" value="extend parking" name="buttonName" class="actionButton"/> 
+            @{ Html.EndForm(); }
+            
+            @Html.BeginForm("StopParking", "Home")  
+            <h2>Stop parking</h2>
+            Location ID - @Html.EditorFor(m => m.Location, new { @autocomplete = "off", @maxlength = "5", @type = "number" })<br/>
+            <input type="submit" value="stop parking" name="buttonName" class="actionButton"/> 
+            @{ Html.EndForm(); }
+        </div>
+    </body>
+</html>
