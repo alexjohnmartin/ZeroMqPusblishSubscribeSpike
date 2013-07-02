@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Shared_Contracts;
 using Shared_Contracts.Parking;
+using Shared_Transmission.PubSub;
 
 namespace ParkingFrontEnd.Service
 {

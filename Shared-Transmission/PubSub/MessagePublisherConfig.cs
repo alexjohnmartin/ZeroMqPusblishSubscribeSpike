@@ -1,4 +1,4 @@
-﻿namespace ParkingFrontEnd.Service
+﻿namespace Shared_Transmission.PubSub
 {
     public class MessagePublisherConfig
     {

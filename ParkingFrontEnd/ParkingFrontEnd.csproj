@@ -123,8 +123,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\IMessagePublisher.cs" />
     <Compile Include="Service\ISendMessageService.cs" />
-    <Compile Include="Service\MessagePublisherSingleton.cs" />
-    <Compile Include="Service\MessagePublisherConfig.cs" />
     <Compile Include="Service\SendMessageService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +155,10 @@
     <ProjectReference Include="..\Shared-Contracts\Shared-Contracts.csproj">
       <Project>{A5ED104C-EEF6-468F-BA16-9844AF48C1FF}</Project>
       <Name>Shared-Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared-Transmission\Shared-Transmission.csproj">
+      <Project>{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}</Project>
+      <Name>Shared-Transmission</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

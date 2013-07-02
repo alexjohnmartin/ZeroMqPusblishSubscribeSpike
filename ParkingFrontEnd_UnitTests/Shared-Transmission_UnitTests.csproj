@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{81287848-A4FD-4099-A138-A41ACEEDEDEC}</ProjectGuid>
+    <ProjectGuid>{A24C7BC3-F7BF-4744-8701-F305CA15D214}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EnforcementFrontEnd_IntegrationTests</RootNamespace>
-    <AssemblyName>EnforcementFrontEnd_IntegrationTests</AssemblyName>
+    <RootNamespace>SharedTransmission_UnitTests</RootNamespace>
+    <AssemblyName>SharedTransmission_UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,7 +37,7 @@
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -47,16 +47,10 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
-    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="clrzmq">
-      <HintPath>..\libs\clrzmq.2.2.5\lib\clrzmq.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\ParkingFrontEnd\bin\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -72,33 +66,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MessageSubscriberSingleton_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EnforcementFrontEnd\EnforcementFrontEnd.csproj">
-      <Project>{A15A6355-95B0-45B3-8C40-A8973ED43714}</Project>
-      <Name>EnforcementFrontEnd</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Shared-Contracts\Shared-Contracts.csproj">
-      <Project>{A5ED104C-EEF6-468F-BA16-9844AF48C1FF}</Project>
-      <Name>Shared-Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Shared-Transmission\Shared-Transmission.csproj">
-      <Project>{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}</Project>
-      <Name>Shared-Transmission</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <Compile Include="Service\MessagePublisherSingleton_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="libzmq.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\Shared-Transmission\Shared-Transmission.csproj">
+      <Project>{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}</Project>
+      <Name>Shared-Transmission</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

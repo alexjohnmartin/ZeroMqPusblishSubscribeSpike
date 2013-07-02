@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingFrontEnd", "ParkingF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleListener", "ConsoleListener\ConsoleListener.csproj", "{93A76F9C-D0A2-4C7F-8B11-405630FF259A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingFrontEnd_UnitTests", "ParkingFrontEnd_UnitTests\ParkingFrontEnd_UnitTests.csproj", "{A24C7BC3-F7BF-4744-8701-F305CA15D214}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared-Transmission_UnitTests", "ParkingFrontEnd_UnitTests\Shared-Transmission_UnitTests.csproj", "{A24C7BC3-F7BF-4744-8701-F305CA15D214}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared-Contracts", "Shared-Contracts\Shared-Contracts.csproj", "{A5ED104C-EEF6-468F-BA16-9844AF48C1FF}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{189A54C2-69CB-4352-B639-A04413254177}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnforcementFrontEnd_IntegrationTests", "EnforcementFrontEnd_IntegrationTests\EnforcementFrontEnd_IntegrationTests.csproj", "{81287848-A4FD-4099-A138-A41ACEEDEDEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared-Transmission", "Shared-Transmission\Shared-Transmission.csproj", "{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,16 +95,27 @@ Global
 		{81287848-A4FD-4099-A138-A41ACEEDEDEC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{81287848-A4FD-4099-A138-A41ACEEDEDEC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{81287848-A4FD-4099-A138-A41ACEEDEDEC}.Release|x86.ActiveCfg = Release|Any CPU
+		{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A5751FB7-9BEC-492B-9D36-B88A12680C3B} = {8B7A2005-1119-4E8A-B127-4AFFFD8EED81}
-		{A24C7BC3-F7BF-4744-8701-F305CA15D214} = {8B7A2005-1119-4E8A-B127-4AFFFD8EED81}
 		{93A76F9C-D0A2-4C7F-8B11-405630FF259A} = {468CBC42-19FA-447A-8E83-33FF10A42D71}
 		{A15A6355-95B0-45B3-8C40-A8973ED43714} = {468CBC42-19FA-447A-8E83-33FF10A42D71}
 		{81287848-A4FD-4099-A138-A41ACEEDEDEC} = {468CBC42-19FA-447A-8E83-33FF10A42D71}
 		{A5ED104C-EEF6-468F-BA16-9844AF48C1FF} = {189A54C2-69CB-4352-B639-A04413254177}
+		{DD90BBFB-5D38-4D33-A5B2-348FB3BF58D4} = {189A54C2-69CB-4352-B639-A04413254177}
+		{A24C7BC3-F7BF-4744-8701-F305CA15D214} = {189A54C2-69CB-4352-B639-A04413254177}
 	EndGlobalSection
 EndGlobal

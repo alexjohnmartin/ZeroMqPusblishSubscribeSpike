@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Text;
 using EnforcementFrontEnd.Logic;
 using NUnit.Framework;
 using Newtonsoft.Json;
 using Shared_Contracts;
 using Shared_Contracts.Parking;
-using ZMQ;
+using Shared_Transmission.PubSub;
 
 namespace EnforcementFrontEnd_IntegrationTests
 {
@@ -21,20 +20,12 @@ namespace EnforcementFrontEnd_IntegrationTests
                 LocationsEventStore.Initialize(1000, 1);
                 MessageSubscriberSingleton.Configure(new MessageSubscriberConfig{Host = Host});
 
-                using (var _context = new Context(1))
-                {
-                    using (var _socket = _context.Socket(SocketType.PUB))
-                    {
-                        _socket.Bind(Host);
+                MessagePublisherSingleton.Configure(new MessagePublisherConfig{Host = Host, TestMode = false});
+                System.Threading.Thread.Sleep(5000);
 
-                        System.Threading.Thread.Sleep(500);
+                SendParkingStartMessage(); 
 
-                        ////TODO: This doesn't appear to actually be sending any messages - the console listener doesn't see any traffic
-                        _socket.Send(GenerateParkingStartMessage(), Encoding.Unicode);
-
-                        System.Threading.Thread.Sleep(500);
-                    }
-                }
+                System.Threading.Thread.Sleep(500);
             }
 
             [Test]
@@ -43,35 +34,43 @@ namespace EnforcementFrontEnd_IntegrationTests
                 Assert.That(LocationsEventStore.EventsConsumed, Is.EqualTo(1));
             }
 
-            private string GenerateParkingStartMessage()
-            {
-                var parkingEvent = new StartParkingEvent
-                                       {
-                                           DurationInMins = 15,
-                                           LocationId = 1000,
-                                           LicensePlate = "111AAA",
-                                           StartDateTime = DateTime.UtcNow
-                                       };
-                var envelope = new Envelope
-                                   {
-                                       Header = new Header
-                                                    {
-                                                        CorrelationId = Guid.NewGuid(),
-                                                        MessageId = Guid.NewGuid(),
-                                                        SourceApp = "Integration tests",
-                                                        SourceServer = "localhost",
-                                                        Timestamp = DateTime.UtcNow,
-                                                        Type = typeof (StartParkingEvent)
-                                                    },
-                                       Message = JsonConvert.SerializeObject(parkingEvent)
-                                   };
-                return JsonConvert.SerializeObject(envelope); 
-            }
-
             [TearDown]
             public void Teardown()
             {
                 MessageSubscriberSingleton.Dispose();
+                MessagePublisherSingleton.Dispose();
+            }
+
+            private void SendParkingStartMessage()
+            {
+                var startParkingEvent = new StartParkingEvent
+                {
+                    DurationInMins = 15,
+                    LocationId = 1000,
+                    LicensePlate = "111AAA",
+                    StartDateTime = DateTime.UtcNow
+                };
+
+                var envelope = CreateEnvelope(startParkingEvent, typeof(StartParkingEvent));
+                MessagePublisherSingleton.SendMessage(string.Format("parkingEvent {0}", JsonConvert.SerializeObject(envelope)));
+            }
+
+            private static Envelope CreateEnvelope(object messageObject, Type messageType)
+            {
+                var envelope = new Envelope
+                {
+                    Header = new Header
+                    {
+                        CorrelationId = Guid.NewGuid(),
+                        MessageId = Guid.NewGuid(),
+                        SourceApp = "IntegrationTests",
+                        SourceServer = Environment.MachineName,
+                        Timestamp = DateTime.UtcNow,
+                        Type = messageType
+                    },
+                    Message = JsonConvert.SerializeObject(messageObject)
+                };
+                return envelope;
             }
         }
     }

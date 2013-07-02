@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using ParkingFrontEnd.Service;
+using Shared_Transmission.PubSub;
 
 namespace ParkingFrontEnd_UnitTests.Service
 {

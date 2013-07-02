@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text;
-using ZMQ; 
+using ZMQ;
 
-namespace ParkingFrontEnd.Service
+namespace Shared_Transmission.PubSub
 {
     public static class MessagePublisherSingleton
     {
