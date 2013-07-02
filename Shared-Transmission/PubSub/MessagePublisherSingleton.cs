@@ -32,8 +32,13 @@ namespace Shared_Transmission.PubSub
 
         public static void Dispose()
         {
-            _socket.Dispose();
-            _context.Dispose();
+            _configured = false;
+
+            if (!_config.TestMode)
+            {
+                _socket.Dispose();
+                _context.Dispose();
+            }
         }
 
         private static MessagePublisherConfig _config;

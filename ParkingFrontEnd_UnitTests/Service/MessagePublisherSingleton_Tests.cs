@@ -6,7 +6,7 @@ namespace ParkingFrontEnd_UnitTests.Service
 {
     public class MessagePublisherSingleton_Tests
     {
-        public class When_I_send_a_message_without_configuiring_the_message_publisher
+        public class When_I_send_a_message_without_configuring_the_message_publisher
         {
             private Exception _resultException;
 
@@ -31,7 +31,7 @@ namespace ParkingFrontEnd_UnitTests.Service
             }
         }
 
-        public class When_I_send_a_message_after_configuiring_the_message_publisher
+        public class When_I_send_a_message_after_configuring_the_message_publisher
         {
             private Exception _resultException;
 
@@ -54,6 +54,12 @@ namespace ParkingFrontEnd_UnitTests.Service
             public void Then_it_should_not_throw_an_error()
             {
                 Assert.That(_resultException, Is.Null);
+            }
+
+            [TearDown]
+            public void TearDown()
+            {
+                MessagePublisherSingleton.Dispose();
             }
         }
     }
