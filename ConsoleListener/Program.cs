@@ -11,6 +11,7 @@ namespace ConsoleListener
         {
             string host = ConfigurationManager.AppSettings["MessageSubscriber.Host"];
             string filter = "parkingEvent ";
+            int messageCount = 0; 
 
             Console.WriteLine("Subscribing to parking events on " + host);
             Console.WriteLine("******************************************************************");
@@ -25,8 +26,9 @@ namespace ConsoleListener
                     while (true)
                     {
                         string message = subscriber.Recv(Encoding.Unicode);
+                        messageCount++; 
                         Console.WriteLine();
-                        Console.WriteLine("message received - " + message);
+                        Console.WriteLine("message {0} - {1}", messageCount, message);
                     }
                 }
             }
